@@ -23,10 +23,10 @@ with open('datatraining.txt') as csvfile:
 nb = GaussianNB()
 nb.fit(train_data, train_target)
 
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(n_estimators=70, oob_score=True, n_jobs=-1, random_state=101, max_features=None, min_samples_leaf=30)
 rfc.fit(train_data, train_target)
 
-svm = SVC()
+svm = SVC(kernel="linear", C=0.025, random_state=101)
 svm.fit(train_data, train_target)
 
 #####for testing set 1#####
